@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.task {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input {
+  padding: 5px;
+  margin: 10px 0;
+  width: 200px;
+}
+
+.output {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.result {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.sales-item {
+  margin: 5px 0;
+}
+
+.sales-item button {
+  margin-left: 10px;
+}

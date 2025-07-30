@@ -29,7 +29,9 @@ function sum(a) {
 }
 
 document.getElementById("sumBtn").addEventListener("click", () => {
-  document.getElementById("sumOutput").textContent = sum(2)(3)(5);
+  const result = sum(2)(3)(5);
+  document.getElementById("sumOutput").textContent = result;
+  console.log(`Sum Result: ${result}`);
 });
 
 //task 3
@@ -40,7 +42,9 @@ function greet(greeting) {
 }
 const sayHi = greet("Hi,");
 document.getElementById("greetBtn").addEventListener("click", () => {
-  document.getElementById("greetOutput").textContent = sayHi("John");
+  result = sayHi("John");
+  document.getElementById("greetOutput").textContent = result;
+  console.log(`Greeting: ${result}`);
 });
 
 // task 4
@@ -56,7 +60,9 @@ const user2 = {
 };
 
 document.getElementById("callBtn").addEventListener("click", () => {
-  document.getElementById("callOutput").textContent = user1.greet.call(user2);
+  const result = user1.greet.call(user2);
+  document.getElementById("callOutput").textContent = result;
+  console.log(`Method Borrowing Result: ${result}`);
 });
 
 // task 5
@@ -68,8 +74,10 @@ const counter = {
   },
 };
 
+document
+  .getElementById("clickBtn")
+  .addEventListener("click", counter.increment.bind(counter));
 document.getElementById("clickBtn").addEventListener("click", () => {
-  counter.increment();
   document.getElementById("btnOutput").textContent = counter.count;
   if (counter.count === 69) {
     document.getElementById("btnOutput").textContent = "Nice";
@@ -106,6 +114,9 @@ document.getElementById("arrayBtn").addEventListener("click", () => {
   document.getElementById("setOutput").textContent = arrSet;
   document.getElementById("filterOutput").textContent = arrFiltered;
   document.getElementById("reduceOutput").textContent = arrReduced;
+  console.log(`Set Method: ${arrSet}`);
+  console.log(`Filter Method: ${arrFiltered}`);
+  console.log(`Reduce Method: ${arrReduced}`);
 });
 
 // task 7
@@ -115,3 +126,68 @@ const people = [
   { name: "Charlie", age: 21 },
   { name: "David", age: 25 },
 ];
+
+function groupByAge(people) {
+  const ageMap = new Map();
+
+  people.forEach((person) => {
+    const { age, name } = person;
+    if (ageMap.has(age)) {
+      const currentNames = ageMap.get(age);
+      ageMap.set(age, [...currentNames, name]);
+    } else {
+      ageMap.set(age, [name]);
+    }
+  });
+
+  return ageMap;
+}
+console.log(groupByAge(people));
+
+document.getElementById("ageGroupBtn").addEventListener("click", () => {
+  const grouped = groupByAge(people);
+  let output = "";
+  grouped.forEach((names, age) => {
+    output += `Age ${age}: ${names.join(", ")}<br>`;
+  });
+  document.getElementById("ageGroupOutput").innerHTML = output || "No groups";
+  console.log(`Grouped by Age: ${output.replace(/<br>/g, "; ")}`);
+});
+
+// task 8
+const sales = new Map([
+  [101, 10],
+  [102, 5],
+  [103, 8],
+]);
+
+function increaseQuantity(map, key) {
+  if (map.has(key)) {
+    map.set(key, map.get(key) + 1);
+  }
+}
+
+function renderSales() {
+  const container = document.getElementById("sales-container");
+  container.innerHTML = "";
+  for (const [key, value] of sales) {
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "sales-item";
+
+    const textSpan = document.createElement("span");
+    textSpan.textContent = `ID: ${key}, Quantity: ${value}`;
+
+    const button = document.createElement("button");
+    button.textContent = "Increment";
+    button.onclick = () => {
+      increaseQuantity(sales, key);
+      renderSales();
+    };
+
+    itemDiv.appendChild(textSpan);
+    itemDiv.appendChild(button);
+    container.appendChild(itemDiv);
+  }
+}
+
+renderSales();
