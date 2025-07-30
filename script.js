@@ -178,6 +178,7 @@ function renderSales() {
     textSpan.textContent = `ID: ${key}, Quantity: ${value}`;
 
     const button = document.createElement("button");
+    button.classList.add("button");
     button.textContent = "Increment";
     button.onclick = () => {
       increaseQuantity(sales, key);
