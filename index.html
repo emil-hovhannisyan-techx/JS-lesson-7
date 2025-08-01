@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- task1 - debouncing -->
+    <div class="task">
+      <h2>Task 1. Debouncing that search input!</h2>
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Type to search.."
+        class="input"
+      />
+      <div id="searchOutput" class="output">Type to see the output</div>
+    </div>
+    <!-- task2 - summing that function with nested functions -->
+    <div class="task">
+      <h2>Task 2. Currying a function</h2>
+      <p>
+        Test: sum(2)(3)(5) =
+        <span id="sumOutput" class="result">Click below to compute</span>
+      </p>
+      <button id="sumBtn" , class="button">Run sum</button>
+    </div>
+
+    <!-- task 3 - Resuable Greeting! -->
+    <div class="task">
+      <h3>Task 3. Creating a Reusable Greeting</h3>
+      <p>Test: sayHi('John') = <span id="greetOutput" class="result"></span></p>
+      <button id="greetBtn" class="button">Run the Greeeeeeting</button>
+    </div>
+
+    <!-- task 4: Method borrowing with call -->
+    <div class="task">
+      <h2>Task 4. Method Borrowing with call</h2>
+      <p>
+        user2 greeting =
+        <span id="callOutput" class="result"></span>
+      </p>
+      <button id="callBtn" class="button">Run Greeting</button>
+    </div>
+    <!-- task 5: Counter -->
+    <div class="task">
+      <h2>Task 5. Mystery button</h2>
+      <p>
+        Click button for mystery event:
+        <span id="btnOutput" class="result"></span>
+      </p>
+      <button id="clickBtn" class="button">Click me</button>
+    </div>
+    <!-- Task 6: Duplicates -->
+
+    <div class="task">
+      <h2>Task 6. Removing duplicates from array.</h2>
+      <p>Original: [1, 2, 2, 3, 4, 4, 5]</p>
+      <p>Set Method: <span id="setOutput" class="result"> </span></p>
+      <p>Filter Method: <span id="filterOutput" class="result"> </span></p>
+      <p>Reduce Method: <span id="reduceOutput" class="result"> </span></p>
+      <button id="arrayBtn" class="button">Remove Duplicates</button>
+    </div>
+
+    <!-- Task 7: Group by Age -->
+    <div class="task">
+      <h2>Task 7. Group People by Age</h2>
+      <p>
+        People: [{ name: "Alice", age: 21 }, { name: "Bob", age: 25 }, { name:
+        "Charlie", age: 21 }, { name: "David", age: 25 }]
+      </p>
+      <p>Grouped by Age: <span id="ageGroupOutput" class="result"></span></p>
+      <button id="ageGroupBtn" class="button">Group by Age</button>
+    </div>
+
+    <!-- Task 8: Map values -->
+    <div class="task">
+      <h2>Task 8. Update Map Values</h2>
+      <div id="sales-container"></div>
+    </div>
+  </body>
+</html>
